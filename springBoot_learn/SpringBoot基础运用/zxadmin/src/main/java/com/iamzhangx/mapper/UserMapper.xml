@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iamzhangx.mapper.UserMapper">
+    <update id="updateUserById" parameterType="com.iamzhangx.bean.SysUser">
+        update sys_user set nick_name = #{nick_name} where user_id = #{user_id}
+    </update>
+    <select id="getUserById" parameterType="int" resultType="com.iamzhangx.bean.SysUser">
+        select * from sys_user where user_id = #{user_id}
+    </select>
+    <select id="loadUserByUsername" resultType="com.iamzhangx.bean.SysUser">
+        select * from sys_user where user_name = #{user_name}
+    </select>
+    <select id="getUserRolesById" parameterType="int" resultType="com.iamzhangx.bean.SysUser">
+        select * from sys_role r,sys_user_role ur where r.role_id=ur.role_id and ur.user_id = #{user_id}
+    </select>
+</mapper>
