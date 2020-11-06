@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhlab.demo.mapper.SysAdminUserMapper">
+  <resultMap id="SysAdminUserResult" type="SysAdminUser">
+    <result column="admin_user_id" jdbcType="BIGINT" property="adminUserId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="dept_id" jdbcType="BIGINT" property="deptId" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="deleted_flag" jdbcType="BIT" property="deletedFlag" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="deleted_by" jdbcType="BIGINT" property="deletedBy" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <insert id="insert" parameterType="SysAdminUser">
+    insert into sys_admin_user (admin_user_id, user_name, password, 
+      nick_name, dept_id, phone, 
+      email, avatar, status, 
+      deleted_flag, login_ip, login_time, 
+      created_at, updated_at, deleted_at, 
+      created_by, updated_by, deleted_by, 
+      remark)
+    values (#{adminUserId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{nickName,jdbcType=VARCHAR}, #{deptId,jdbcType=BIGINT}, #{phone,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
+      #{deletedFlag,jdbcType=BIT}, #{loginIp,jdbcType=VARCHAR}, #{loginTime,jdbcType=TIMESTAMP}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=BIGINT}, #{updatedBy,jdbcType=BIGINT}, #{deletedBy,jdbcType=BIGINT}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+
+  <select id="selectAll" parameterType="SysAdminUser" resultMap="SysAdminUserResult">
+    select u.*
+    from sys_admin_user u
+  </select>
+
+</mapper>

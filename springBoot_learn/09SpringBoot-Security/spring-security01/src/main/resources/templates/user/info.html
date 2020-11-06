@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${userInfo.getNickName()}"></h1>
+<p>Name:<span th:text="${userInfo.getUserName()}"></span></p>
+<p>Phone:<span th:text="${userInfo.getPhone()}"></span></p>
+<p>Email:<span th:text="${userInfo.getEmail()}"></span></p>
+<p th:switch="${userInfo.getStatus()}">状态:<span th:case="true">正常</span><span th:case="false">停用</span></p>
+<p>created:<span th:text="${#dates.format(userInfo.getCreatedAt(),'yyyy-MM-dd')}"></span></p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+# Spring配置
+spring:
+  profiles:
+    active: druid
+  # 模板引擎
+  thymeleaf:
+    prefix: classpath:/templates
+    suffix: .html
+    mode: HTML
+    encoding: utf-8
+    servlet.content-type: text/html
+
+# PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
